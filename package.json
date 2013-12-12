@@ -1,6 +1,6 @@
 {
     "name": "derelict-ogg",
-    "description": "A dynamic binding to the OpenAL library.",
+    "description": "A dynamic binding to the libogg library.",
     "homepage": "https://github.com/DerelictOrg/DerelictOgg",
     "license": "Boost",
     "authors": [

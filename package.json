@@ -1,0 +1,16 @@
+{
+    "name": "derelict-ogg",
+    "description": "A dynamic binding to the OpenAL library.",
+    "homepage": "https://github.com/DerelictOrg/DerelictOgg",
+    "license": "Boost",
+    "authors": [
+        "Mike Parker"
+    ],
+
+    "targetName": "DerelictOgg",
+    "targetPath": "lib",
+
+    "dependencies": {
+        "derelict-util": ">=1.0.0"
+    }
+}

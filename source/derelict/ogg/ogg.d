@@ -110,7 +110,7 @@ struct ogg_sync_state {
     int bodybytes;
 }
 
-extern( C ) {
+extern( C ) nothrow {
     alias da_oggpack_writeinit = void function( oggpack_buffer* );
     alias da_oggpack_writecheck = void function( oggpack_buffer* );
     alias da_oggpack_writetrunc = void function( oggpack_buffer*, c_long );

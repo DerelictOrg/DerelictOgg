@@ -346,8 +346,6 @@ class DerelictOggLoader : SharedLibLoader {
 
 __gshared DerelictOggLoader DerelictOgg;
 
-static this() {
-    if( DerelictOgg is null ) {
-        DerelictOgg = new DerelictOggLoader();
-    }
+shared static this() {
+    DerelictOgg = new DerelictOggLoader();
 }

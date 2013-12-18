@@ -282,7 +282,6 @@ class DerelictOggLoader : SharedLibLoader {
         bindFunc( cast( void** )&oggpack_bytes, "oggpack_bytes" );
         bindFunc( cast( void** )&oggpack_bits, "oggpack_bits" );
         bindFunc( cast( void** )&oggpack_get_buffer, "oggpack_get_buffer" );
-
         bindFunc( cast( void** )&oggpackB_writeinit, "oggpackB_writeinit" );
         bindFunc( cast( void** )&oggpackB_writecheck, "oggpackB_writecheck" );
         bindFunc( cast( void** )&oggpackB_writetrunc, "oggpackB_writetrunc" );
@@ -301,20 +300,17 @@ class DerelictOggLoader : SharedLibLoader {
         bindFunc( cast( void** )&oggpackB_bytes, "oggpackB_bytes" );
         bindFunc( cast( void** )&oggpackB_bits, "oggpackB_bits" );
         bindFunc( cast( void** )&oggpackB_get_buffer, "oggpackB_get_buffer" );
-
         bindFunc( cast( void** )&ogg_stream_packetin, "ogg_stream_packetin" );
         bindFunc( cast( void** )&ogg_stream_iovecin, "ogg_stream_iovecin" );
         bindFunc( cast( void** )&ogg_stream_pageout, "ogg_stream_pageout" );
         bindFunc( cast( void** )&ogg_stream_pageout_fill, "ogg_stream_pageout_fill" );
         bindFunc( cast( void** )&ogg_stream_flush, "ogg_stream_flush" );
         bindFunc( cast( void** )&ogg_stream_flush_fill, "ogg_stream_flush_fill" );
-
         bindFunc( cast( void** )&ogg_sync_init, "ogg_sync_init" );
         bindFunc( cast( void** )&ogg_sync_clear, "ogg_sync_clear" );
         bindFunc( cast( void** )&ogg_sync_reset, "ogg_sync_reset" );
         bindFunc( cast( void** )&ogg_sync_destroy, "ogg_sync_destroy" );
         bindFunc( cast( void** )&ogg_sync_check, "ogg_sync_check" );
-
         bindFunc( cast( void** )&ogg_sync_buffer, "ogg_sync_buffer" );
         bindFunc( cast( void** )&ogg_sync_wrote, "ogg_sync_wrote" );
         bindFunc( cast( void** )&ogg_sync_pageseek, "ogg_sync_pageseek" );
@@ -322,7 +318,6 @@ class DerelictOggLoader : SharedLibLoader {
         bindFunc( cast( void** )&ogg_stream_pagein, "ogg_stream_pagein" );
         bindFunc( cast( void** )&ogg_stream_packetout, "ogg_stream_packetout" );
         bindFunc( cast( void** )&ogg_stream_packetpeek, "ogg_stream_packetpeek" );
-
         bindFunc( cast( void** )&ogg_stream_init, "ogg_stream_init" );
         bindFunc( cast( void** )&ogg_stream_clear, "ogg_stream_clear" );
         bindFunc( cast( void** )&ogg_stream_reset, "ogg_stream_reset" );
@@ -330,7 +325,6 @@ class DerelictOggLoader : SharedLibLoader {
         bindFunc( cast( void** )&ogg_stream_destroy, "ogg_stream_destroy" );
         bindFunc( cast( void** )&ogg_stream_check, "ogg_stream_check" );
         bindFunc( cast( void** )&ogg_stream_eos, "ogg_stream_eos" );
-
         bindFunc( cast( void** )&ogg_page_checksum_set, "ogg_page_checksum_set" );
         bindFunc( cast( void** )&ogg_page_version, "ogg_page_version" );
         bindFunc( cast( void** )&ogg_page_continued, "ogg_page_continued" );

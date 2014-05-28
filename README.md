@@ -1,7 +1,7 @@
 DerelictOgg
 ==========
 
-A dynamic binding to [libogg][1] for the D Programming Language.
+A dynamic binding to [libogg][1] versions 1.3.0 and 1.3.1 for the D Programming Language.
 
 For information on how to build DerelictOgg and link it with your programs, please see the post [Using Derelict][2] at the The One With D.
 

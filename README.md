@@ -18,5 +18,5 @@ void main() {
 ```
 
 [1]: http://xiph.org/ogg/
-[2]: http://dblog.aldacron.net/derelict-help/using-derelict/
-[3]: https://github.com/DerelictOrg/DerelictUtil/wiki/DerelictUtil-for-Users
+[2]: http://derelictorg.github.io/compiling.html
+[3]: http://derelictorg.github.io/using.html

@@ -1,9 +1,9 @@
 DerelictOgg
 ==========
 
-A dynamic binding to [libogg][1] versions 1.3.0 and 1.3.1 for the D Programming Language.
+A dynamic binding to [libogg][1] version 1.3 for the D Programming Language.
 
-Please see the pages [Building and Linking Derelict][2] and [Using Derelict][3], in the Derelict documentation, for information on how to build DerelictOgg and load libogg at run time. In the meantime, here's some sample code.
+Please see the [Derelict documentation][2], for information on how to build DerelictOgg and load libogg at run time. In the meantime, here's some sample code.
 
 ```D
 import derelict.ogg.ogg;
@@ -18,5 +18,4 @@ void main() {
 ```
 
 [1]: http://xiph.org/ogg/
-[2]: http://derelictorg.github.io/compiling.html
-[3]: http://derelictorg.github.io/using.html
+[2]: https://derelictorg.github.io/

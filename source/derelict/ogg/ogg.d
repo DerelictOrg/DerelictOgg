@@ -112,7 +112,6 @@ struct ogg_sync_state {
 
 extern( C ) nothrow @nogc {
     alias da_oggpack_writeinit = void function( oggpack_buffer* );
-    alias da_oggpack_writecheck = void function( oggpack_buffer* );
     alias da_oggpack_writetrunc = void function( oggpack_buffer*, c_long );
     alias da_oggpack_writealign = void function( oggpack_buffer* );
     alias da_oggpack_writecopy = void function( oggpack_buffer*, void*, c_long );
@@ -130,7 +129,6 @@ extern( C ) nothrow @nogc {
     alias da_oggpack_bits = c_long function( oggpack_buffer* );
     alias da_oggpack_get_buffer = ubyte function( oggpack_buffer* );
     alias da_oggpackB_writeinit = void function( oggpack_buffer* );
-    alias da_oggpackB_writecheck = void function( oggpack_buffer* );
     alias da_oggpackB_writetrunc = void function( oggpack_buffer*, c_long  );
     alias da_oggpackB_writealign = void function( oggpack_buffer* );
     alias da_oggpackB_writecopy = void function( oggpack_buffer*, void*, c_long );
@@ -148,16 +146,12 @@ extern( C ) nothrow @nogc {
     alias da_oggpackB_bits = c_long function( oggpack_buffer* );
     alias da_oggpackB_get_buffer = ubyte function( oggpack_buffer* );
     alias da_ogg_stream_packetin = int function( ogg_stream_state*, ogg_packet* );
-    alias da_ogg_stream_iovecin = int function( ogg_stream_state*, ogg_iovec_t*, int, c_long, ogg_int64_t );
     alias da_ogg_stream_pageout = int function( ogg_stream_state*, ogg_page* );
-    alias da_ogg_stream_pageout_fill = int function( ogg_stream_state*, ogg_page*, int );
     alias da_ogg_stream_flush = int function( ogg_stream_state*, ogg_page* );
-    alias da_ogg_stream_flush_fill = int function( ogg_stream_state*, ogg_page* );
     alias da_ogg_sync_init = int function( ogg_sync_state* );
     alias da_ogg_sync_clear = int function( ogg_sync_state* );
     alias da_ogg_sync_reset = int function( ogg_sync_state* );
     alias da_ogg_sync_destroy = int function( ogg_sync_state* );
-    alias da_ogg_sync_check = int function( ogg_sync_state* );
     alias da_ogg_sync_buffer = byte* function( ogg_sync_state*, c_long );
     alias da_ogg_sync_wrote = int function( ogg_sync_state*, c_long );
     alias da_ogg_sync_pageseek = c_long function( ogg_sync_state*,ogg_page* );
@@ -170,7 +164,6 @@ extern( C ) nothrow @nogc {
     alias da_ogg_stream_reset = int function( ogg_stream_state* );
     alias da_ogg_stream_reset_serialno = int function( ogg_stream_state*,int serialno );
     alias da_ogg_stream_destroy = int function( ogg_stream_state* );
-    alias da_ogg_stream_check = int function( ogg_stream_state* );
     alias da_ogg_stream_eos = int function( ogg_stream_state* );
     alias da_ogg_page_checksum_set = void function( ogg_page* );
     alias da_ogg_page_version = int function( ogg_page* );
@@ -186,7 +179,6 @@ extern( C ) nothrow @nogc {
 
 __gshared {
     da_oggpack_writeinit oggpack_writeinit;
-    da_oggpack_writecheck oggpack_writecheck;
     da_oggpack_writetrunc oggpack_writetrunc;
     da_oggpack_writealign oggpack_writealign;
     da_oggpack_writecopy oggpack_writecopy;
@@ -204,7 +196,6 @@ __gshared {
     da_oggpack_bits oggpack_bits;
     da_oggpack_get_buffer oggpack_get_buffer;
     da_oggpackB_writeinit oggpackB_writeinit;
-    da_oggpackB_writecheck oggpackB_writecheck;
     da_oggpackB_writetrunc oggpackB_writetrunc;
     da_oggpackB_writealign oggpackB_writealign;
     da_oggpackB_writecopy oggpackB_writecopy;
@@ -222,16 +213,12 @@ __gshared {
     da_oggpackB_bits oggpackB_bits;
     da_oggpackB_get_buffer oggpackB_get_buffer;
     da_ogg_stream_packetin ogg_stream_packetin;
-    da_ogg_stream_iovecin ogg_stream_iovecin;
     da_ogg_stream_pageout ogg_stream_pageout;
-    da_ogg_stream_pageout_fill ogg_stream_pageout_fill;
     da_ogg_stream_flush ogg_stream_flush;
-    da_ogg_stream_flush_fill ogg_stream_flush_fill;
     da_ogg_sync_init ogg_sync_init;
     da_ogg_sync_clear ogg_sync_clear;
     da_ogg_sync_reset ogg_sync_reset;
     da_ogg_sync_destroy ogg_sync_destroy;
-    da_ogg_sync_check ogg_sync_check;
     da_ogg_sync_buffer ogg_sync_buffer;
     da_ogg_sync_wrote ogg_sync_wrote;
     da_ogg_sync_pageseek ogg_sync_pageseek;
@@ -244,7 +231,6 @@ __gshared {
     da_ogg_stream_reset ogg_stream_reset;
     da_ogg_stream_reset_serialno ogg_stream_reset_serialno;
     da_ogg_stream_destroy ogg_stream_destroy;
-    da_ogg_stream_check ogg_stream_check;
     da_ogg_stream_eos ogg_stream_eos;
     da_ogg_page_checksum_set ogg_page_checksum_set;
     da_ogg_page_version ogg_page_version;
@@ -265,7 +251,6 @@ class DerelictOggLoader : SharedLibLoader {
 
     protected override void loadSymbols() {
         bindFunc( cast( void** )&oggpack_writeinit, "oggpack_writeinit" );
-        bindFunc( cast( void** )&oggpack_writecheck, "oggpack_writecheck" );
         bindFunc( cast( void** )&oggpack_writetrunc, "oggpack_writetrunc" );
         bindFunc( cast( void** )&oggpack_writealign, "oggpack_writealign" );
         bindFunc( cast( void** )&oggpack_writecopy, "oggpack_writecopy" );
@@ -283,7 +268,6 @@ class DerelictOggLoader : SharedLibLoader {
         bindFunc( cast( void** )&oggpack_bits, "oggpack_bits" );
         bindFunc( cast( void** )&oggpack_get_buffer, "oggpack_get_buffer" );
         bindFunc( cast( void** )&oggpackB_writeinit, "oggpackB_writeinit" );
-        bindFunc( cast( void** )&oggpackB_writecheck, "oggpackB_writecheck" );
         bindFunc( cast( void** )&oggpackB_writetrunc, "oggpackB_writetrunc" );
         bindFunc( cast( void** )&oggpackB_writealign, "oggpackB_writealign" );
         bindFunc( cast( void** )&oggpackB_writecopy, "oggpackB_writecopy" );
@@ -301,16 +285,12 @@ class DerelictOggLoader : SharedLibLoader {
         bindFunc( cast( void** )&oggpackB_bits, "oggpackB_bits" );
         bindFunc( cast( void** )&oggpackB_get_buffer, "oggpackB_get_buffer" );
         bindFunc( cast( void** )&ogg_stream_packetin, "ogg_stream_packetin" );
-        bindFunc( cast( void** )&ogg_stream_iovecin, "ogg_stream_iovecin" );
         bindFunc( cast( void** )&ogg_stream_pageout, "ogg_stream_pageout" );
-        bindFunc( cast( void** )&ogg_stream_pageout_fill, "ogg_stream_pageout_fill" );
         bindFunc( cast( void** )&ogg_stream_flush, "ogg_stream_flush" );
-        bindFunc( cast( void** )&ogg_stream_flush_fill, "ogg_stream_flush_fill" );
         bindFunc( cast( void** )&ogg_sync_init, "ogg_sync_init" );
         bindFunc( cast( void** )&ogg_sync_clear, "ogg_sync_clear" );
         bindFunc( cast( void** )&ogg_sync_reset, "ogg_sync_reset" );
         bindFunc( cast( void** )&ogg_sync_destroy, "ogg_sync_destroy" );
-        bindFunc( cast( void** )&ogg_sync_check, "ogg_sync_check" );
         bindFunc( cast( void** )&ogg_sync_buffer, "ogg_sync_buffer" );
         bindFunc( cast( void** )&ogg_sync_wrote, "ogg_sync_wrote" );
         bindFunc( cast( void** )&ogg_sync_pageseek, "ogg_sync_pageseek" );
@@ -323,7 +303,6 @@ class DerelictOggLoader : SharedLibLoader {
         bindFunc( cast( void** )&ogg_stream_reset, "ogg_stream_reset" );
         bindFunc( cast( void** )&ogg_stream_reset_serialno, "ogg_stream_reset_serialno" );
         bindFunc( cast( void** )&ogg_stream_destroy, "ogg_stream_destroy" );
-        bindFunc( cast( void** )&ogg_stream_check, "ogg_stream_check" );
         bindFunc( cast( void** )&ogg_stream_eos, "ogg_stream_eos" );
         bindFunc( cast( void** )&ogg_page_checksum_set, "ogg_page_checksum_set" );
         bindFunc( cast( void** )&ogg_page_version, "ogg_page_version" );

@@ -1,0 +1,8 @@
+name "derelict-ogg"
+description "A dynamic binding to libogg."
+homepage "https://github.com/DerelictOrg/DerelictOgg"
+license "Boost"
+authors "Mike Parker"
+targetName "DerelictOgg"
+targetPath "lib"
+dependency "derelict-util" version="~>3.0.0-alpha.2"
